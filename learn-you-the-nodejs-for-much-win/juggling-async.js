@@ -9,7 +9,8 @@ function printResults () {
 }
 
 function httpGet (index) {
-  http.get(process.argv[2 + index], function (response) {
+  var url = process.argv[2 + index];
+  http.get(url, function (response) {
     response.pipe(bl(function (err, data) {
       if (err)
         return console.error(data);
