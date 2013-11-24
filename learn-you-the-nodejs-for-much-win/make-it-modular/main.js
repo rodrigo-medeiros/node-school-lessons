@@ -1,4 +1,4 @@
-var filter = require('./filter-ls');
+var filter = require('./filter');
 
 filter(process.argv[2], process.argv[3], function (err, content) {
   if (err)
