@@ -1,5 +1,5 @@
-var through = require('through');
 var http = require('http');
+var through = require('through');
 
 var server = http.createServer(function (req, res) {
   if (req.method === 'POST') {
@@ -7,6 +7,6 @@ var server = http.createServer(function (req, res) {
       this.queue(buf.toString().toUpperCase());
     })).pipe(res);
   }
-  else res.end("You haven't sent me a POST...");
+  else res.end("You haven't sent me a POST...\n");
 });
-server.listen(process.argv[2]);
+server.listen(parseInt(process.argv[2]));
