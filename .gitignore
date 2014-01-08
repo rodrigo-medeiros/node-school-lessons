@@ -2,3 +2,4 @@
 /level-me-up-scotty/node_modules
 /stream-adventure/*.log
 *.sublime-*
+/expressworks/node_modules
