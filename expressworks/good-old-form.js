@@ -5,8 +5,7 @@ var app = express();
 app.use(express.urlencoded());
 
 app.post('/form', function (req, res) {
-  var str = req.body.str.split('').reverse().join('');
-  res.send(str);
+  res.send(req.body.str.split('').reverse().join(''));
 });
 
 app.listen(process.argv[2]);
