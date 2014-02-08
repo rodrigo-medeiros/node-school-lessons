@@ -4,4 +4,5 @@
 /expressworks/node_modules
 /async-you/node_modules
 /promise-it-wont-hurt/node_modules
+/node_modules
 *.sublime-*
