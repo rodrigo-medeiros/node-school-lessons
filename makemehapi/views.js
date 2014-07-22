@@ -3,7 +3,7 @@ var Hapi = require('hapi'),
 
 var options = {
   views: {
-    path: 'templates',
+    path: path.join(__dirname + '/templates'),
     engines: {
       html: require('handlebars')
     }
