@@ -1,11 +1,19 @@
 var domify = require('domify');
 
-var widget = domify('<div>Hello <span class="name"></span>!</div>');
+module.exports = Widget;
 
-widget.setName = function (str) {
+function Widget () {
+  if (!(this instanceof Widget)) {
+    return new Widget();
+  }
+  this.element = domify('<div>Hello <span class="name"></span>!</div>');
 };
 
-widget.appendTo = function (target) {
+Widget.prototype.setName = function (str) {
+  var span = this.element.querySelector('span.name');
+  span.textContent = str;
 };
 
-module.exports = widget;
+Widget.prototype.appendTo = function (target) {
+  target.appendChild(this.element);
+};
