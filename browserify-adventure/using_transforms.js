@@ -1,5 +1,12 @@
-var sprintf = require('sprintf'),
-		fs      = require('fs');
+var sprintf = require('sprintf');
+var	fs = require('fs');
+var text = fs.readFileSync('wake.txt', 'utf8');
+var lines = text.split('\n');
 
-var text = fs.readFileSync('/home/rodrigomedeiros/local/lib/node_modules/browserify-adventure/problems/using_transforms/wake.txt', 'utf8');
-console.log(sprintf(text, "%3d %s"));
+for (var i = 0; i < lines.length; i++) {
+  if (i % 5 === 0) {
+    console.log(sprintf('%3d %s', i, lines[i]));
+  } else {
+    console.log('    ' + lines[i]);
+  }
+}
