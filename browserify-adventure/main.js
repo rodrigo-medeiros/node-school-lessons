@@ -1,2 +1,2 @@
-var txt = require('wake.txt');
+var txt = require('./wake.txt');
 console.log(txt);

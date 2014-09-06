@@ -1,9 +1,9 @@
-var through = require('through2'),
-    split = require('split'),
-    sprintf = require('sprintf'),
-    quote = require('quote-stream'),
-    combiner = require('stream-combiner');
-  
+var through = require('through2');
+var split = require('split');
+var sprintf = require('sprintf');
+var quote = require('quote-stream');
+var combine = require('stream-combiner2');
+
 module.exports = function (file) {
   if (!/\.txt$/.test(file)) return through();
   var num = 0;
@@ -17,6 +17,6 @@ module.exports = function (file) {
     next();
   });
   var prefix = through();
-  prefix.write('module.exports=');
-  return combiner(split(), liner, quote(), prefix);
+  prefix.push('module.exports=');
+  return combine([ split(), liner, quote(), prefix ]);
 };
