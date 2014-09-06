@@ -6,7 +6,6 @@ var through = require('through2'),
   
 module.exports = function (file) {
   if (!/\.txt$/.test(file)) return through();
-  
   var num = 0;
   var liner = through(function write (buf, enc, next) {
     var line = buf.toString('utf8') + '\n';
@@ -17,7 +16,6 @@ module.exports = function (file) {
     num ++;
     next();
   });
-
   var prefix = through();
   prefix.write('module.exports=');
   return combiner(split(), liner, quote(), prefix);
